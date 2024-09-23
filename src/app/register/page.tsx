@@ -2,7 +2,7 @@
 'use client';
 
 import { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import styles from './register.module.css';
 
 export default function Register() {
@@ -23,8 +23,9 @@ export default function Register() {
       const response = await axios.post('/api/register', formData);
       console.log(response.data.message);
       // Opcional: Redirigir al login o dashboard si es necesario
-    } catch (err: any) {
-      console.error('Error al registrar:', err.response?.data?.error || err.message);
+    } catch (err: unknown) {
+      const error = err as AxiosError<{ error: string }>;
+      console.error('Error al registrar:', error.response?.data?.error || error.message);
     }
   };
 

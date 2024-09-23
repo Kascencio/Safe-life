@@ -1,8 +1,8 @@
 // src/app/login/page.tsx
-'use client';
+"use client";
 
 import { useState } from 'react';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import styles from './login.module.css';
 
@@ -20,8 +20,9 @@ export default function Login() {
       const response = await axios.post('/api/login', formData);
       localStorage.setItem('token', response.data.token);
       router.push('/dashboard');
-    } catch (err: any) {
-      setErrorMessage(err.response?.data?.error || 'Error al iniciar sesión');
+    } catch (err: unknown) {
+      const error = err as AxiosError<{ error: string }>;
+      setErrorMessage(error.response?.data?.error || 'Error al iniciar sesión');
     }
   };
 

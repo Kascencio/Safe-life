@@ -3,7 +3,11 @@
 
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-const jwt_decode = require('jwt-decode');
+import jwt_decode from 'jwt-decode';
+
+
+
+
 
 interface DecodedToken {
   id: number;
@@ -21,7 +25,7 @@ export default function Dashboard() {
       router.push('/login');
     } else {
       try {
-        const decoded: DecodedToken = jwt_decode(token);
+        const decoded = jwt_decode<DecodedToken>(token);
         const currentTime = Date.now() / 1000;
         if (decoded.exp < currentTime) {
           // El token ha expirado

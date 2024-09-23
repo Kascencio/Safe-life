@@ -1,62 +1,116 @@
-/* src/app/dashboard/contactos.module.css */
-
 .contactos {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contactos h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.contactos ul {
+  list-style-type: none;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.containerall{
+  background-color: rgba(255, 255, 255, 0.877);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vh;
+  height: calc(90% - 10vh);
+}
+
+.contactos li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: #00a537;
+  border-radius: 4px;
+}
+
+.contactos li button {
+  padding: 0.25rem 0.5rem;
+  background-color: #e53e3e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contactos li button:hover {
+  background-color: #c53030;
+}
+
+.contactos input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contactos button.addButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #38a169;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.contactos button.addButton:hover {
+  background-color: #2f855a;
+}
+
+/* Media queries para pantallas medianas (tablets) */
+@media (min-width: 768px) {
+  .contactos ul {
+    width: 70%;
+  }
+
+  .contactos li {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .contactos input[type="text"] {
+    width: calc(90% - 1rem);
+  }
+
+  .contactos button.addButton {
+    width: 60%;
+  }
+}
+
+/* Media queries para pantallas grandes (desktops) */
+@media (min-width: 1024px) {
+  .contactos ul {
+    width: 50%;
+  }
+
+  .contactos li {
     padding: 1rem;
   }
-  
-  .contactos h2 {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .contactos ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 1rem;
-  }
-  
-  .contactos li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-  }
-  
-  .contactos li button {
-    padding: 0.25rem 0.5rem;
-    background-color: #e53e3e;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .contactos li button:hover {
-    background-color: #c53030;
-  }
-  
+
   .contactos input[type="text"] {
-    width: calc(100% - 1rem);
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: calc(85% - 1rem);
   }
-  
+
   .contactos button.addButton {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #38a169;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    width: 50%;
   }
-  
-  .contactos button.addButton:hover {
-    background-color: #2f855a;
-  }
-  
+}

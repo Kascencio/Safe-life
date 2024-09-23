@@ -56,6 +56,7 @@ export default function Contactos({ userId }: ContactosProps) {
   return (
     <div className={styles.contactos}>
       <h2>Contactos de Emergencia</h2>
+      <div className={styles.containerall}>
       <ul>
         {contactos.map((contacto) => (
           <li key={contacto.id}>
@@ -76,7 +77,8 @@ export default function Contactos({ userId }: ContactosProps) {
         onChange={(e) => setNuevoContacto({ ...nuevoContacto, telefono: e.target.value })}
         placeholder="Teléfono"
       />
-      <button onClick={handleAdd}>Agregar Contacto</button>
+      <button className={styles.addButton} onClick={handleAdd}>Agregar Contacto</button>
+    </div>
     </div>
   );
 }

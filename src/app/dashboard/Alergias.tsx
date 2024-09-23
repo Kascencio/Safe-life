@@ -54,6 +54,7 @@ export default function Alergias({ userId }: AlergiasProps) {
   return (
     <div className={styles.alergias}>
       <h2>Alergias</h2>
+      <div className={styles.containerall}>
       <ul>
         {alergias.map((alergia) => (
           <li key={alergia.id}>
@@ -68,7 +69,8 @@ export default function Alergias({ userId }: AlergiasProps) {
         onChange={(e) => setNuevaAlergia(e.target.value)}
         placeholder="Nueva Alergia"
       />
-      <button onClick={handleAdd}>Agregar Alergia</button>
+      <button className={styles.addButton} onClick={handleAdd}>Agregar Alergia</button>
+     </div>
     </div>
   );
 }

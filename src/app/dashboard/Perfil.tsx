@@ -57,7 +57,7 @@ export default function Perfil({ userId }: PerfilProps) {
     <div className={styles.perfil}>
       <h2>Perfil</h2>
       {isEditing ? (
-        <div>
+        <div className={styles.containerall}>
           <label>
             Nombre Completo:
             <input
@@ -98,7 +98,7 @@ export default function Perfil({ userId }: PerfilProps) {
           <button onClick={() => setIsEditing(false)}>Cancelar</button>
         </div>
       ) : (
-        <div>
+        <div className={styles.containerall}>
           <p><strong>Nombre Completo:</strong> {userProfile.fullName}</p>
           <p><strong>Correo Electrónico:</strong> {userProfile.email}</p>
           <p><strong>Número de Teléfono:</strong> {userProfile.phoneNumber}</p>

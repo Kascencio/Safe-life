@@ -1,4 +1,3 @@
-// src/app/login/page.tsx
 "use client";
 
 import { useState } from 'react';
@@ -31,25 +30,38 @@ export default function Login() {
       <form onSubmit={handleSubmit} className={styles.form}>
         <h2 className={styles.title}>Iniciar Sesión</h2>
         {errorMessage && <p className={styles.error}>{errorMessage}</p>}
+
+        {/* Etiqueta para el correo */}
+        <label htmlFor="email" className={styles.label}>Correo Electrónico</label>
         <input
           type="email"
           name="email"
+          id="email"
           placeholder="Correo Electrónico"
           onChange={handleChange}
           required
           className={styles.input}
         />
+
+        {/* Etiqueta para la contraseña */}
+        <label htmlFor="password" className={styles.label}>Contraseña</label>
         <input
           type="password"
           name="password"
+          id="password"
           placeholder="Contraseña"
           onChange={handleChange}
           required
           className={styles.input}
         />
+
         <button type="submit" className={styles.button}>
           Iniciar Sesión
         </button>
+        <div className={styles.container_register}>
+          <p>¿No tienes cuenta?</p>
+          <a href="/register">Regístrate</a>
+        </div>
       </form>
     </div>
   );

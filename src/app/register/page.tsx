@@ -33,14 +33,17 @@ export default function Register() {
     <div className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.form}>
       <h2 className={styles.title}>Iniciar Sesión</h2>
-      <label htmlFor="">Nombre</label>
       <input className={styles.input} type="text" name="fullName" placeholder="Nombre Completo" onChange={handleChange} required />
       <input className={styles.input} type="email" name="email" placeholder="Correo Electrónico" onChange={handleChange} required />
       <input className={styles.input} type="password" name="password" placeholder="Contraseña" onChange={handleChange} required />
       <input className={styles.input} type="text" name="phoneNumber" placeholder="Número de Teléfono" onChange={handleChange} required />
       <input className={styles.input} type="number" name="age" placeholder="Edad" onChange={handleChange} required />
       <button className={styles.button} type="submit">Registrar</button>
+      <div className="container_login">
+      <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión</a> </p>
+    </div>
     </form>
+
     </div>
     
   );

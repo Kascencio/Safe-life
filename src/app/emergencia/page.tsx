@@ -5,9 +5,28 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import axios from 'axios';
 
+interface UserData {
+  fullName: string;
+  phoneNumber: string;
+  alergias: Alergia[];
+  contactos: Contacto[];
+}
+
+interface Alergia {
+  id: number;
+  nombre: string;
+}
+
+interface Contacto {
+  id: number;
+  nombre: string;
+  telefono: string;
+}
+
+
 export default function Emergencia() {
   const searchParams = useSearchParams();
-  const [data, setData] = useState<any>(null);
+  const [data, setData] = useState<UserData | null>(null);
 
   useEffect(() => {
     const userId = searchParams.get('userId');
@@ -35,17 +54,17 @@ export default function Emergencia() {
       <p><strong>Teléfono:</strong> {data.phoneNumber}</p>
       <h2>Alergias</h2>
       <ul>
-        {data.alergias.map((alergia: any) => (
-          <li key={alergia.id}>{alergia.nombre}</li>
-        ))}
+        {data?.alergias.map((alergia: Alergia) => (
+        <li key={alergia.id}>{alergia.nombre}</li>
+       ))};
       </ul>
       <h2>Contactos de Emergencia</h2>
       <ul>
-        {data.contactos.map((contacto: any) => (
-          <li key={contacto.id}>
-            {contacto.nombre} - {contacto.telefono}
-          </li>
-        ))}
+        {data?.contactos.map((contacto: Contacto) => (
+        <li key={contacto.id}>
+        {contacto.nombre} - {contacto.telefono}
+        </li>
+        ))};
       </ul>
     </div>
   );

@@ -1,7 +1,7 @@
 // src/app/dashboard/Contactos.tsx
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import styles from './contactos.module.css';
 
@@ -19,20 +19,22 @@ export default function Contactos({ userId }: ContactosProps) {
   const [contactos, setContactos] = useState<Contacto[]>([]);
   const [nuevoContacto, setNuevoContacto] = useState({ nombre: '', telefono: '' });
 
-  const fetchContactos = async () => {
+  // Cambia 'fetchAlergias' a 'fetchContactos'
+  const fetchContactos = useCallback(async () => {
     try {
       const response = await axios.get(`/api/users/${userId}/contactos`);
       setContactos(response.data);
     } catch (err) {
       console.error('Error al obtener los contactos:', err);
     }
-  };
+  }, [userId]);
 
   useEffect(() => {
     fetchContactos();
-  }, []);
+  }, [fetchContactos]);
 
   const handleAdd = async () => {
+    if (nuevoContacto.nombre.trim() === '' || nuevoContacto.telefono.trim() === '') return;
     try {
       await axios.post(`/api/users/${userId}/contactos`, nuevoContacto);
       setNuevoContacto({ nombre: '', telefono: '' });

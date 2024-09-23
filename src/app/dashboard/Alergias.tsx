@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useCallback } from 'react';
 import styles from './alergias.module.css';
 
 interface AlergiasProps {
@@ -18,18 +19,18 @@ export default function Alergias({ userId }: AlergiasProps) {
   const [alergias, setAlergias] = useState<Alergia[]>([]);
   const [nuevaAlergia, setNuevaAlergia] = useState('');
 
-  const fetchAlergias = async () => {
+  const fetchAlergias = useCallback(async () => {
     try {
       const response = await axios.get(`/api/users/${userId}/alergias`);
       setAlergias(response.data);
     } catch (err) {
       console.error('Error al obtener las alergias:', err);
     }
-  };
+  },[userId]);
 
   useEffect(() => {
     fetchAlergias();
-  }, []);
+  }, [fetchAlergias]);  
 
   const handleAdd = async () => {
     try {

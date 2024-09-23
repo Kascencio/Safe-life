@@ -42,7 +42,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
       },
     });
 
-    return NextResponse.json({ message: 'Usuario actualizado exitosamente' });
+    return NextResponse.json({ message: 'Usuario actualizado', user: updatedUser });
   } catch (err) {
     console.error('Error al actualizar el usuario:', err);
     return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });

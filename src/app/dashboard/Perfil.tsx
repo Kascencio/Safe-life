@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styles from './perfil.module.css';
+import { useCallback } from 'react';
 
 interface PerfilProps {
   userId: number;
@@ -20,18 +21,18 @@ export default function Perfil({ userId }: PerfilProps) {
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [isEditing, setIsEditing] = useState(false);
 
-  const fetchProfile = async () => {
+  const fetchProfile = useCallback(async () => {
     try {
       const response = await axios.get(`/api/users/${userId}`);
       setUserProfile(response.data);
     } catch (err) {
       console.error('Error al obtener el perfil:', err);
     }
-  };
+  },[userId]);
 
   useEffect(() => {
     fetchProfile();
-  }, []);
+  }, [fetchProfile]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (userProfile) {

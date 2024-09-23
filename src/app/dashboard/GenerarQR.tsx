@@ -10,14 +10,34 @@ interface GenerarQRProps {
   userId: number;
 }
 
+interface UserData {
+  fullName: string;
+  phoneNumber: string;
+  alergias: Alergia[];
+  contactos: Contacto[];
+  // Otros campos si los hay
+}
+
+interface Alergia {
+  id: number;
+  nombre: string;
+}
+
+interface Contacto {
+  id: number;
+  nombre: string;
+  telefono: string;
+}
+
+
 export default function GenerarQR({ userId }: GenerarQRProps) {
-  const [userData, setUserData] = useState<any>(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`/api/users/${userId}/emergencia`);
-        setUserData(response.data);
+        setUserData(response.data as UserData);
       } catch (err) {
         console.error('Error al obtener la información:', err);
       }

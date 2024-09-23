@@ -22,8 +22,9 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({ id: user.id, message: 'Usuario registrado exitosamente' });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(err);
     return NextResponse.json({ error: 'El registro falló' }, { status: 500 });
   }
+  
 }

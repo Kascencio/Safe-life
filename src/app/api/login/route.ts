@@ -28,8 +28,8 @@ export async function POST(request: Request) {
     const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
 
     return NextResponse.json({ token, message: 'Inicio de sesión exitoso' });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error(err);
     return NextResponse.json({ error: 'El inicio de sesión falló' }, { status: 500 });
-  }
+  }  
 }

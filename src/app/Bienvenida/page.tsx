@@ -7,8 +7,8 @@ import styles from './Bienvenida.module.css';// Asegúrate de que la imagen est�
 export default function Bienvenida() {
   return (
     <div className={styles.welcome_container}>
-      <div>
-      <Image src="/img/Fondo.jpg" alt="Fondo" className={styles.img} width={500} height={300}/>
+      <div className={styles.container_image}>
+        <Image src="/img/Fondo.jpg" alt="Fondo" className={styles.img} width={500} height={300}/>
       </div>
       <div className={styles.container}>
         <h1>Bienvenido a Scan Life</h1>
@@ -25,12 +25,6 @@ export default function Bienvenida() {
           <Link href="/register">
             <button>Registrarse</button>
           </Link>
-        </div>
-        <div className={styles.qr_scaner}>
-          <p>Escanea un código QR para obtener la información médica.</p>
-          <a href="/Dashboard/lector-qr">
-            <button>Escanear Código QR</button>
-          </a>
         </div>
       </div>
     </div>

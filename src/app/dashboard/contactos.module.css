@@ -18,7 +18,7 @@
   margin-bottom: 1rem;
 }
 
-.containerall{
+.containerall {
   background-color: rgba(255, 255, 255, 0.877);
   padding: 20px;
   border-radius: 20px;
@@ -26,7 +26,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vh;
+  width: 100%;
   height: calc(90% - 10vh);
 }
 
@@ -76,7 +76,7 @@
   background-color: #2f855a;
 }
 
-/* Media queries para pantallas medianas (tablets) */
+/* Media queries para pantallas medianas */
 @media (min-width: 768px) {
   .contactos ul {
     width: 70%;
@@ -96,7 +96,7 @@
   }
 }
 
-/* Media queries para pantallas grandes (desktops) */
+/* Media queries para pantallas grandes */
 @media (min-width: 1024px) {
   .contactos ul {
     width: 50%;

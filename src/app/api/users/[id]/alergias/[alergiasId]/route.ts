@@ -1,15 +1,20 @@
-// src/app/api/users/[id]/alergias/[alergiaId]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
-// Correcto
 import { prisma } from '../../../../../utils/prisma';
 
+export async function DELETE(request: NextRequest, { params }: { params: { id: string; alergiasId: string } }) {
+  const alergiasId = parseInt(params.alergiasId);  // Conversión directa, igual que en contactos
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string; alergiaId: string } }) {
-  const alergiaId = parseInt(params.alergiaId);
+  console.log('ID de usuario:', params.id);  // Debugging
+  console.log('ID de alergia:', alergiasId);  // Debugging
+
+  if (isNaN(alergiasId)) {
+    console.error('El ID de la alergia es inválido o NaN');
+    return NextResponse.json({ error: 'ID de alergia inválido' }, { status: 400 });
+  }
 
   try {
     await prisma.alergia.delete({
-      where: { id: alergiaId },
+      where: { id: alergiasId },
     });
 
     return NextResponse.json({ message: 'Alergia eliminada exitosamente' });

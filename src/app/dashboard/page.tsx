@@ -9,6 +9,8 @@ import Alergias from './Alergias';
 import Contactos from './Contactos';
 import GenerarQR from './GenerarQR';
 import styles from './dashboard.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 interface DecodedToken {
   id: number;
@@ -20,6 +22,7 @@ export default function Dashboard() {
   const router = useRouter();
   const [currentSection, setCurrentSection] = useState('perfil');
   const [userId, setUserId] = useState<number | null>(null);
+  const [isNavOpen, setIsNavOpen] = useState(false); // Nuevo estado para controlar el menú
 
   useEffect(() => {
     // Verificar el token y extraer el userId
@@ -60,13 +63,20 @@ export default function Dashboard() {
     }
   };
 
+  const handleNavToggle = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
   return (
     <div className={styles.dashboard}>
-      <nav className={styles.nav}>
-        <button onClick={() => setCurrentSection('perfil')}>Perfil</button>
-        <button onClick={() => setCurrentSection('alergias')}>Alergias</button>
-        <button onClick={() => setCurrentSection('contactos')}>Contactos de Emergencia</button>
-        <button onClick={() => setCurrentSection('generarQR')}>Generar QR</button>
+      <button className={styles.menuButton} onClick={handleNavToggle} aria-label="Toggle navigation menu">
+      <FontAwesomeIcon icon={faBars} />
+      </button>
+      <nav className={`${styles.nav} ${isNavOpen ? styles.navOpen : ''}`}>
+        <button onClick={() => { setCurrentSection('perfil'); setIsNavOpen(false); }}>Perfil</button>
+        <button onClick={() => { setCurrentSection('alergias'); setIsNavOpen(false); }}>Alergias</button>
+        <button onClick={() => { setCurrentSection('contactos'); setIsNavOpen(false); }}>Contactos de Emergencia</button>
+        <button onClick={() => { setCurrentSection('generarQR'); setIsNavOpen(false); }}>Generar QR</button>
       </nav>
       <div className={styles.content}>
         {userId ? renderSection() : <p>Cargando...</p>}

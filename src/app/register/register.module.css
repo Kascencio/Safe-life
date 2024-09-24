@@ -29,7 +29,7 @@
   }
   
   .input {
-    width: 50%;
+    width: 70%;
     padding: 0.75rem;
     margin-top: .5vh;
     margin-bottom: 1rem;
@@ -38,8 +38,8 @@
   }
   
   .button {
-    width: 50%;
-    padding: 0.75rem;
+    width: 70%;
+    padding: 0.9rem;
     margin-bottom: 20px;
     background-color: #0070f3;
     color: #fff;
@@ -101,5 +101,7 @@
     }
     .button {
       height: 30px;
+      height: 4vh;
+      padding: 0.9rem;
     }
   }

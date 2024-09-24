@@ -8,7 +8,7 @@
     background-position: center;
     background-repeat: no-repeat;
     padding: 20px;
-    height: 100vh;
+    height: 150vh;
   }
 
   .container_image{
@@ -63,7 +63,7 @@
   
   .description {
     margin-bottom: 5vh;
-    padding: 0vh 10vh 0vh 10vh;
+    padding: 0vh 5vh 0vh 5vh;
     font-weight: 600;
     text-align: center;
     font-size: 16px;

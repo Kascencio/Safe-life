@@ -6,49 +6,64 @@
     flex-direction: column;
     width: 100%;
   }
-  
-  .emergencia h1, .emergencia h2 {
+
+  .container_emergencia h1, .container_emergencia h2 {
     text-align: center;
     margin-bottom: 1rem;
+    font-size: 2rem;
   }
   
-  .emergencia p {
+  .container_emergencia p {
     margin-bottom: 1rem;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
   }
   
-  .emergencia strong {
+  .container_emergencia strong {
     font-weight: bold;
+  }
+
+  .container_emergencia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/img/Fondo-login.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
   }
   
   .containerall {
     color: black;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.76);
     padding: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 800px;
+    height: 70vh;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  .emergencia ul {
+  .container_emergencia ul {
     list-style-type: none;
     padding: 0;
     margin-bottom: 1rem;
   }
   
-  .emergencia li {
+  .container_emergencia li {
     padding: 0.5rem;
     margin-bottom: 0.5rem;
-    background-color: #0070f3;
+    background-color: #0058bd;
     color: #fff;
     border-radius: 4px;
     text-align: center;
+    font-size: 1.4rem;
   }
   
-  .emergencia li strong {
+  .container_emergencia li strong {
     display: block;
     margin-bottom: 0.25rem;
   }
@@ -68,15 +83,15 @@
       padding: 15px;
     }
   
-    .emergencia h1, .emergencia h2 {
+    .container_emergencia h1, .container_emergencia h2 {
       font-size: 1.5rem;
     }
   
-    .emergencia p {
+    .container_emergencia p {
       font-size: 1rem;
     }
   
-    .emergencia li {
+    .container_emergencia li {
       padding: 0.5rem;
       font-size: 0.9rem;
     }
@@ -88,7 +103,7 @@
       max-width: 900px;
     }
   
-    .emergencia li {
+    .container_emergencia li {
       font-size: 1.1rem;
     }
   }

@@ -49,28 +49,30 @@ export default function EmergenciaContent() {
   }
 
   return (
-    <div className={styles.containerall}>
-      <h1 className={styles.emergencia}>Información de Emergencia</h1>
-      <p><strong>Nombre:</strong> {data.fullName}</p>
-      <p><strong>Teléfono:</strong> {data.phoneNumber}</p>
-  
-      <h2 className={styles.emergencia}>Alergias</h2>
-      <ul>
-        {data.alergias.map((alergia) => (
-          <li key={alergia.id} className={styles.emergencia}>
-            {alergia.nombre}
-          </li>
-        ))}
-      </ul>
-  
-      <h2 className={styles.emergencia}>Contactos de Emergencia</h2>
-      <ul>
-        {data.contactos.map((contacto) => (
-          <li key={contacto.id} className={styles.emergencia}>
-            {contacto.nombre} - {contacto.telefono}
-          </li>
-        ))}
-      </ul>
+    <div className={styles.container_emergencia}>
+      <div className={styles.containerall}>
+        <h1 className={styles.emergencia}>Información de Emergencia</h1>
+        <p><strong>Nombre:</strong> {data.fullName}</p>
+        <p><strong>Teléfono:</strong> {data.phoneNumber}</p>
+    
+        <h2 className={styles.emergencia}>Alergias</h2>
+        <ul>
+          {data.alergias.map((alergia) => (
+            <li key={alergia.id} className={styles.emergencia}>
+              {alergia.nombre}
+            </li>
+          ))}
+        </ul>
+    
+        <h2 className={styles.emergencia}>Contactos de Emergencia</h2>
+        <ul>
+          {data.contactos.map((contacto) => (
+            <li key={contacto.id} className={styles.emergencia}>
+              {contacto.nombre} - {contacto.telefono}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );  
 }
